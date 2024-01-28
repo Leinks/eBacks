@@ -1,0 +1,11 @@
+Proceso para Crear un Modulo Crud
+
+# 1 Se Crea el Modelo Dentro de la carpeta Models
+
+# 2 Se agrega el Path dentro del archivo __init__.py que esta dentro de la carpeta Models
+
+# 3 Se Crea el Controlador dentro de la carpeta Controllers
+
+# 4 Se Crea la Ruta dentro de la carpeta routes
+
+# 5 Se importa la ruta y se agrega al path del Swagger en el Archivo app.py

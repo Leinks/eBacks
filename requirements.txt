@@ -1,0 +1,15 @@
+motor
+PyJWT
+bcrypt
+uvicorn
+pymongo
+fastapi
+pydantic[email,dotenv]
+pydantic-settings
+passlib
+beanie
+pytest
+httpx
+mongomock_motor
+pytest-mock
+python-decouple
