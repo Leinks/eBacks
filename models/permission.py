@@ -11,7 +11,7 @@ class Permission(Document):
     updated_at: Optional[datetime] = None
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "id_role": "q2312eqwdqwe1",
                 "name": "Admin",
@@ -36,7 +36,7 @@ class UpdatePermissionModel(BaseModel):
         name = "permissions"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "id_role": "q2312eqwdqwe1",
                 "name": "Admin",
@@ -53,7 +53,7 @@ class Response(BaseModel):
     data: Optional[Any]
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "status_code": 200,
                 "response_type": "success",

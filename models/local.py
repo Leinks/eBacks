@@ -15,7 +15,7 @@ class Local(Document):
     updated_at: Optional[datetime] = datetime.now()
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "id_company": "64aae8d1feedeedf8444d711",
                 "name": "Facebook",
@@ -45,7 +45,7 @@ class UpdateLocalModel(BaseModel):
         name = "locals"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "id_company": "64aae8d1feedeedf8444d711",
                 "name": "Facebook",
@@ -65,7 +65,7 @@ class Response(BaseModel):
     data: Optional[Any]
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "status_code": 200,
                 "response_type": "success",

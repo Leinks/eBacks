@@ -11,7 +11,7 @@ class Category(Document):
     updated_at: Optional[datetime] = datetime.now()
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "id_local": "65b54164666d51d27e2ac524",
                 "name": "Hamburguesas",
@@ -33,7 +33,7 @@ class UpdateCategoryModel(BaseModel):
         name = "categories"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "id_local": "65b54164666d51d27e2ac524",
                 "name": "Hamburguesas",
@@ -49,7 +49,7 @@ class Response(BaseModel):
     data: Optional[Any]
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "status_code": 200,
                 "response_type": "success",

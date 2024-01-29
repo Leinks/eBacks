@@ -12,7 +12,7 @@ class User(Document):
     updated_at: Optional[datetime] = None
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "name": "Samuel David Tovar",
                 "email": "Samuelt@mail.com",
@@ -36,7 +36,7 @@ class UpdateUserModel(BaseModel):
         name = "users"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "name": "Abdulazeez Abdulazeez",
                 "email": "abdul@school.com",
@@ -49,7 +49,7 @@ class UpdateUserPassword(BaseModel):
     password: str
     updated_at: Optional[datetime] = None
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "password": "secret",
                 "updated_at": datetime.now(),
@@ -63,7 +63,7 @@ class Response(BaseModel):
     data: Optional[Any]
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "status_code": 200,
                 "response_type": "success",

@@ -10,7 +10,7 @@ class Path(Document):
     updated_at: Optional[datetime] = datetime.now()
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "path": "companys",
                 "active": True
@@ -30,7 +30,7 @@ class UpdatePathModel(BaseModel):
         name = "path"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "path": "companys",
                 "active": True
@@ -45,7 +45,7 @@ class Response(BaseModel):
     data: Optional[Any]
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "status_code": 200,
                 "response_type": "success",

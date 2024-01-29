@@ -15,7 +15,7 @@ class Company(Document):
     updated_at: Optional[datetime] = datetime.now()
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "id_admin": "64bdb5ddda64b6c168da6f42",
                 "name": "Meta",
@@ -45,7 +45,7 @@ class UpdateCompanyModel(BaseModel):
         name = "companys"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "id_admin": "64bdb5ddda64b6c168da6f42",
                 "name": "Meta",
@@ -65,7 +65,7 @@ class Response(BaseModel):
     data: Optional[Any]
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "status_code": 200,
                 "response_type": "success",

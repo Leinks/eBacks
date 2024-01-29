@@ -13,7 +13,7 @@ class Admin(Document):
     updated_at: Optional[datetime] = datetime.now()
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "name": "Engelbert Tovar",
                 "email": "admin@mail.dev",
@@ -28,7 +28,7 @@ class Admin(Document):
 
 class AdminSignIn(HTTPBasicCredentials):
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {"username": "admin@mail.dev", "password": "secreto"}
         }
 
@@ -39,7 +39,7 @@ class AdminData(BaseModel):
     password: str
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "name": "Engelbert Tovar",
                 "email": "admin@mail.dev",

@@ -15,7 +15,7 @@ class Sidebar(Document):
     updated_at: Optional[datetime] = datetime.now()
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "path": "companys",
                 "title": "Companys",
@@ -45,7 +45,7 @@ class UpdateSidebarModel(BaseModel):
         name = "sidebar"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "path": "companys",
                 "title": "Companys",
@@ -65,7 +65,7 @@ class Response(BaseModel):
     data: Optional[Any]
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "status_code": 200,
                 "response_type": "success",
