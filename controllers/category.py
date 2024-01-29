@@ -16,6 +16,10 @@ async def add_category(new_category: Category) -> Category:
     category = await new_category.create()
     return category
 
+async def retrieve_categorys_locals(id_local: Category): 
+    categorys = await category_collection.find(Category.id_local == id_local).to_list()
+    if categorys:
+        return categorys
 
 async def retrieve_category(id: PydanticObjectId) -> Category:
     category = await category_collection.get(id)

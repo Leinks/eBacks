@@ -34,6 +34,22 @@ async def get_category_data(id: PydanticObjectId):
         "description": "Categories doesn't exist",
     }
 
+@router.get("/admin/{id}", response_description="Categorys locals data retrieved", response_model=Response)
+async def get_admin_category_data(id_local: str):
+    categorys = await retrieve_categorys_locals(id_local)
+    if categorys:
+        return {
+            "status_code": 200,
+            "response_type": "success",
+            "description": "Locals admin data retrieved successfully",
+            "data": categorys,
+        }
+    return {
+    "status_code": 404,
+    "response_type": "error",
+    "description": "Locals doesn't exist",
+    }
+
 
 @router.post(
     "/",

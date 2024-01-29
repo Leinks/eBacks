@@ -32,6 +32,22 @@ async def get_local_data(id: PydanticObjectId):
         "description": "Local doesn't exist",
     }
 
+@router.get("/admin/{id}", response_description="Locals Company data retrieved", response_model=Response)
+async def get_admin_local_data(id_company: str):
+    locals = await retrieve_locals_company(id_company)
+    if locals:
+        return {
+            "status_code": 200,
+            "response_type": "success",
+            "description": "Locals admin data retrieved successfully",
+            "data": locals,
+        }
+    return {
+    "status_code": 404,
+    "response_type": "error",
+    "description": "Locals doesn't exist",
+    }
+
 
 @router.post("/", response_description="Local data added into the database", response_model=Response,)
 async def add_local_data(local: Local = Body(...)):
