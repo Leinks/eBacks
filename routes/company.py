@@ -45,7 +45,7 @@ async def add_company_data(company: Company = Body(...)):
 
 @router.put("/{id}", response_model=Response)
 async def update_company(id: PydanticObjectId, req: UpdateCompanyModel = Body(...)):
-    updated_company = await update_company_data(id, req.dict())
+    updated_company = await update_company_data(id, req.model_dump())
     if updated_company:
         return {
             "status_code": 200,

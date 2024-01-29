@@ -57,7 +57,6 @@ class UpdateCompanyModel(BaseModel):
             }
         }
 
-
 class Response(BaseModel):
     status_code: int
     response_type: str
