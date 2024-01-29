@@ -32,6 +32,21 @@ async def get_company_data(id: PydanticObjectId):
         "description": "Companys doesn't exist",
     }
 
+@router.get("/admin/{id}", response_description="Companys Admin data retrieved", response_model=Response)
+async def get_admin_company_data(id_admin: str):
+    companys = await retrieve_admin_company(id_admin)
+    if companys:
+        return {
+            "status_code": 200,
+            "response_type": "success",
+            "description": "Companys admin data retrieved successfully",
+            "data": companys,
+        }
+    return {
+    "status_code": 404,
+    "response_type": "error",
+    "description": "Companys doesn't exist",
+    }
 
 @router.post("/", response_description="Companys data added into the database", response_model=Response,)
 async def add_company_data(company: Company = Body(...)):
