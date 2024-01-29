@@ -15,19 +15,21 @@ async def add_local(new_local: Local) -> Local:
     local = await new_local.create()
     return local
 
+async def retrieve_locals_company(id_company: Local): 
+    locals = await local_collection.find(Local.id_company == id_company).to_list()
+    if locals:
+        return locals
 
 async def retrieve_local(id: PydanticObjectId) -> Local:
     local = await local_collection.get(id)
     if local:
         return local
 
-
 async def delete_local(id: PydanticObjectId) -> bool:
     local = await local_collection.get(id)
     if local:
         await local.delete()
         return True
-
 
 async def update_local_data(id: PydanticObjectId, data: dict) -> Union[bool, Local]:
     des_body = {k: v for k, v in data.items() if v is not None}

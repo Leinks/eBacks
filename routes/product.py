@@ -32,6 +32,22 @@ async def get_product_data(id: PydanticObjectId):
         "description": "Products doesn't exist",
     }
 
+@router.get("/admin/{id}", response_description="Locals Admin data retrieved", response_model=Response)
+async def get_admin_products_data(id_category: str):
+    locals = await retrieve_products_category(id_category)
+    if locals:
+        return {
+            "status_code": 200,
+            "response_type": "success",
+            "description": "Locals admin data retrieved successfully",
+            "data": locals,
+        }
+    return {
+    "status_code": 404,
+    "response_type": "error",
+    "description": "Locals doesn't exist",
+    }
+
 
 @router.post("/", response_description="Products data added into the database", response_model=Response,)
 async def add_product_data(product: Product = Body(...)):

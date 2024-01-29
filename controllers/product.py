@@ -15,6 +15,10 @@ async def add_product(new_product: Product) -> Product:
     product = await new_product.create()
     return product
 
+async def retrieve_products_category(id_category: Product): 
+    products = await product_collection.find(Product.id_category == id_category).to_list()
+    if products:
+        return products
 
 async def retrieve_product(id: PydanticObjectId) -> Product:
     product = await product_collection.get(id)
