@@ -11,7 +11,7 @@ async def get_companys():
     return {
         "status_code": 200,
         "response_type": "success",
-        "description": "Companys data retrieved successfully",
+        "description": "Jonelle data retrieved successfully",
         "data": companys,
     }
 
@@ -23,7 +23,7 @@ async def get_company_data(id: PydanticObjectId):
         return {
             "status_code": 200,
             "response_type": "success",
-            "description": "Companys data retrieved successfully",
+            "description": "xD data retrieved successfully",
             "data": company,
         }
     return {
@@ -39,7 +39,7 @@ async def get_admin_company_data(id_admin: str):
         return {
             "status_code": 200,
             "response_type": "success",
-            "description": "Companys admin data retrieved successfully",
+            "description": "xD admin data retrieved successfully",
             "data": companys,
         }
     return {

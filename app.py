@@ -1,7 +1,8 @@
 from fastapi import FastAPI, Depends
+from contextlib import asynccontextmanager
 
 from auth.jwt_bearer import JWTBearer
-from config.config import initiate_database
+from config.config import startup_database, shutdown_database
 from routes.admin import router as AdminRouter
 from routes.user import router as UserRouter
 from routes.role import router as RoleRouter
@@ -36,11 +37,15 @@ app.add_middleware(
     # allow_headers=['Set-Cookie', 'Content-Type', Authorization]
     allow_headers=['*']
 )
-
-@app.on_event("startup")
-async def start_database():
-    await initiate_database()
-
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    await startup_database()
+    try:
+        yield
+    finally:
+        await shutdown_database()
+        
+app = FastAPI(lifespan=lifespan)    
 
 @app.get("/", tags=["Root"])
 async def read_root():
