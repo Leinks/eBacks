@@ -16,7 +16,7 @@ async def admin_login(admin_credentials: AdminSignIn = Body(...)):
     if admin_exists:
         password = hash_helper.verify(admin_credentials.password, admin_exists.password)
         if password:
-            return sign_jwt(admin_credentials.username, admin_exists.name)
+            return sign_jwt(admin_credentials.username, admin_exists.name, str(admin_exists.id))
 
         raise HTTPException(status_code=403, detail="Incorrect email or password")
 
