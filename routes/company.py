@@ -32,7 +32,7 @@ async def get_company_data(id: PydanticObjectId):
         "description": "Companys doesn't exist",
     }
 
-@router.get("/admin/{id}", response_description="Companys Admin data retrieved", response_model=Response)
+@router.get("/v1/", response_description="Companys Admin data retrieved", response_model=Response)
 async def get_admin_company_data(id_admin: str):
     companys = await retrieve_admin_company(id_admin)
     if companys:
