@@ -3,7 +3,7 @@ from models.user import User
 from models.role import Role
 from models.permission import Permission
 from models.company import Company
-from models.local import Local
+from models.store import Store
 from models.category import Category
 from models.product import Product
 from models.sidebar import Sidebar
@@ -16,7 +16,7 @@ __all__ = [
     Role,
     Permission,
     Company,
-    Local,
+    Store,
     Category,
     Product,
     Sidebar,

@@ -8,7 +8,7 @@ from routes.user import router as UserRouter
 from routes.role import router as RoleRouter
 from routes.permission import router as PermissionRouter
 from routes.company import router as CompanyRouter
-from routes.local import router as LocalRouter
+from routes.store import router as StoreRouter
 from routes.category import router as CategoryRouter
 from routes.product import router as ProductRouter
 from routes.sidebar import router as SidebarRouter
@@ -48,7 +48,7 @@ app.include_router(UserRouter, tags=["Users"], prefix="/user", dependencies=[Dep
 app.include_router(RoleRouter, tags=["Roles"], prefix="/role", dependencies=[Depends(token_listener)],)
 app.include_router(PermissionRouter, tags=["Permissions"], prefix="/permission", dependencies=[Depends(token_listener)],)
 app.include_router(CompanyRouter, tags=["Companys"], prefix="/company", dependencies=[Depends(token_listener)],)
-app.include_router(LocalRouter, tags=["Locals"], prefix="/local", dependencies=[Depends(token_listener)],)
+app.include_router(StoreRouter, tags=["Stores"], prefix="/store", dependencies=[Depends(token_listener)],)
 app.include_router(CategoryRouter, tags=["Categories"], prefix="/category", dependencies=[Depends(token_listener)],)
 app.include_router(ProductRouter, tags=["Products"], prefix="/product", dependencies=[Depends(token_listener)],)
 app.include_router(SidebarRouter, tags=["Sidebar"], prefix="/sidebar", dependencies=[Depends(token_listener)],)
