@@ -61,7 +61,7 @@ async def add_product_data(product: Product = Body(...)):
 
 @router.put("/{id}", response_model=Response)
 async def update_product(id: PydanticObjectId, req: UpdateProductModel = Body(...)):
-    updated_product = await update_product_data(id, req.dict())
+    updated_product = await update_product_data(id, req.model_dump())
     if updated_product:
         return {
             "status_code": 200,

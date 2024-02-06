@@ -45,7 +45,7 @@ async def add_path_data(path: Path = Body(...)):
 
 @router.put("/{id}", response_model=Response)
 async def update_path(id: PydanticObjectId, req: UpdatePathModel = Body(...)):
-    updated_path = await update_path_data(id, req.dict())
+    updated_path = await update_path_data(id, req.model_dump())
     if updated_path:
         return {
             "status_code": 200,

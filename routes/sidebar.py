@@ -45,7 +45,7 @@ async def add_sidebar_data(sidebar: Sidebar = Body(...)):
 
 @router.put("/{id}", response_model=Response)
 async def update_sidebar(id: PydanticObjectId, req: UpdateSidebarModel = Body(...)):
-    updated_sidebar = await update_sidebar_data(id, req.dict())
+    updated_sidebar = await update_sidebar_data(id, req.model_dump())
     if updated_sidebar:
         return {
             "status_code": 200,

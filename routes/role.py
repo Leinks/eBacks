@@ -44,7 +44,7 @@ async def add_role_data(role: Role = Body(...)):
 
 @router.put("/{id}", response_model=Response)
 async def update_role(id: PydanticObjectId, req: UpdateRoleModel = Body(...)):
-    updated_role = await update_role_data(id, req.dict())
+    updated_role = await update_role_data(id, req.model_dump())
     if updated_role:
         return {
             "status_code": 200,

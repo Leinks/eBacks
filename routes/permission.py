@@ -67,7 +67,7 @@ async def delete_permission_data(id: PydanticObjectId):
 
 @router.put("/{id}", response_model=Response)
 async def update_permission(id: PydanticObjectId, req: UpdatePermissionModel = Body(...)):
-    updated_permission = await update_permission_data(id, req.dict())
+    updated_permission = await update_permission_data(id, req.model_dump())
     if updated_permission:
         return {
             "status_code": 200,

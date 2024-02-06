@@ -83,7 +83,7 @@ async def delete_user_data(id: PydanticObjectId):
 
 @router.put("/{id}", response_model=Response)
 async def update_user(id: PydanticObjectId, req: UpdateUserModel = Body(...)):
-    updated_user = await update_user_data(id, req.dict())
+    updated_user = await update_user_data(id, req.model_dump())
     if updated_user:
         return {
             "status_code": 200,

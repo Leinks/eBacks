@@ -86,7 +86,7 @@ async def delete_category_data(id: PydanticObjectId):
 
 @router.put("/{id}", response_model=Response)
 async def update_category(id: PydanticObjectId, req: UpdateCategoryModel = Body(...)):
-    updated_category = await update_category_data(id, req.dict())
+    updated_category = await update_category_data(id, req.model_dump())
     if updated_category:
         return {
             "status_code": 200,
